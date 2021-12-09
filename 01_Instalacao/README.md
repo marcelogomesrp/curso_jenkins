@@ -1,4 +1,5 @@
 # Aula 01 - Instalação do Jenkinks
+[Videoaula][https://youtu.be/8iLRsb2gXXY]
 
 ## Docker run
 
@@ -62,4 +63,6 @@ docker-compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 
 ## Pipeline de teste
+```
 echo "Hello Jenkins"
+```
