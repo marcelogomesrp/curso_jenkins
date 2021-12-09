@@ -8,7 +8,7 @@ O Jenkins principal servidor de automação de código aberto, ele fornece cente
 ## Aulas
 
 ### 01 - Instalação
-[Repositório](01_Instalacao/README.md)
-[Videoaula][]
+- [Repositório](01_Instalacao/README.md)
+- [Videoaula][]
 
 
