@@ -79,3 +79,68 @@ Em Pipeline, preencha da seguinte forma.
     - Mantenha (Auto)
 - Script Path
     - Colocar o caminho para o seu arquivo com o pipeline, considerando que ele esta na raíz diretório do seu repositório.
+
+
+## Configurar o pipeline do Jenkins utilizando usuário e senha
+
+Por usuário e senha não funciona mais. 
+```
+Failed to connect to repository : Command "git ls-remote -h -- https://github.com/marcelogomesrp/annotSV.git HEAD" returned status code 128:
+stdout:
+stderr: remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/marcelogomesrp/annotSV.git/'
+```
+
+
+## Configurar o pipeline do Jenkins utilizando token
+
+### No GitHub
+Va em: "Settings" -> "Developer settings" -> "Personal access tokens" -> "Generate new token" 
+
+- Note
+    - Colocar algum nome para facilitar sua identificação
+- Expiration
+    - Escolha o tempo, conforme sua conveniência
+Clique em "Generate token"
+
+Copia o token.
+
+### No Jenkins
+
+#### Gerar a credencial
+Vá em "Manage Jenkins" -> "Manage Credentials" -> "Global credentials (unrestricted)" -> "Add Credential" [link direto](http://localhost:8080/credentials/store/system/domain/_/newCredentials)
+
+- Kind
+    - Selecione "Username with password"
+- Scope
+    - Mantenha "Global(Jenkins,nodes, items,all child items, etc)
+- Username
+    - Mantenha em branco
+- Password
+    - Cole o seu token
+- Id 
+    - Mantenha em branco
+- Description
+    - Preecher o campo "Description" com um nome para identificar esta chave depois.
+
+Clique em "Ok"
+
+#### No Pipeline
+
+Em Pipeline, preencha da seguinte forma.
+
+- Definition
+    - Selecione "Pipeline script from SCM"
+- SCM
+    Selecione "Git"
+- Repository URL
+    - Colar a url (HTTPS) do seu repositório, a que se parece com o exemplo a seguir https://github.com/USUARIO/REPOSITÓRIO.git
+- Credentials
+    - Seleciona a sua credencia do token.
+- Brach Specifier (blanck for 'any')
+    - Informe o nome */ seguido do nome da sua branch no github, exemplo "*/main"
+- Repository browser
+    - Mantenha (Auto)
+- Script Path
+    - Colocar o caminho para o seu arquivo com o pipeline, considerando que ele esta na raíz diretório do seu repositório.
