@@ -1,5 +1,5 @@
 # Aula 02 - Integração do Jenkins com GitHub
-[Videoaula](https://youtu.be/8iLRsb2gXXY)
+[Videoaula](https://youtu.be/Q3OUjKnjR28)
 
 ## Configurar o pipeline do Jenkins utilizando um repositório publico
 
