@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Step1') {
+            steps {
+                echo 'step 1'
+            }
+        }
+        stage('Step2 - Parallel In Sequential') {
+            parallel {
+                stage('stpe2A') {
+                    steps {
+                        echo 'step 2 A'
+                    }
+                }
+                stage('stpe2B') {
+                    steps {
+                        echo 'step 2 B'
+                    }
+                }
+            }
+        }
+        stage('Step3') {
+            steps {
+                echo 'step 3'
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
+            }
+        }
+        stage('Step2 - Parallel In Sequential') {
+            parallel {
+                stage('stpe2A') {
+                    steps {
+                        echo 'step 2 A'
+                    }
+                }
+                stage('stpe2B') {
+                    steps {
+                        echo 'step 2 B'
+                    }
+                }                
+            }
+        }
+        stage('Step3') {
+            steps {
+                echo 'step 3'
+            }
+        }
+    }
+}        
+

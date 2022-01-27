@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    environment {
+        BRANCH = 'Master'
+    }
+    stages {
+        stage('step1') {
+            environment {
+                OUTRO = 'outro valor'
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
+        stage('step2'){
+            steps{
+                sh 'printenv'
+            }
+        }
+    }
+}
