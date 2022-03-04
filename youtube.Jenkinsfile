@@ -4,7 +4,7 @@ pipeline {
         stage('step1'){
             steps {
                 echo 'step 1'
-                sh 'sleep 3'
+                sh 'sleep 5'
             }
         }
         stage('Step2 - Parallel'){
@@ -12,13 +12,13 @@ pipeline {
                 stage('step2 A'){
                     steps {
                         echo 'step 2 A'
-                        sh 'sleep 5'
+                        sh 'sleep 15'
                     }            
                 }
                 stage('step2 B'){
                     steps {
                         echo 'step 2 B'
-                        sh 'sleep 3'
+                        sh 'sleep 10'
                     }            
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
         stage('step3'){
             steps {
                 echo 'stepe 3'
-                sh 'sleep 2'
+                sh 'sleep 5'
             }
         }        
     }
