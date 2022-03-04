@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        BRANCH = 'Master'    
+        BRANCH = 'Relese'    
     }
     stages {
         stage('Step1') {
