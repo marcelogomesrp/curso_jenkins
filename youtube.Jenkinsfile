@@ -5,19 +5,26 @@ pipeline {
     }
     stages {
         stage('Step1') {
-            environment {
-                OUTRO = 'Outro valor'
-            }
             steps {
                 echo 'step 1'
                 sh 'printenv'
             }
         }
         stage('Step2') {
+            when {
+                expression { BRANCH ==~ /(Master|Hotfix)/}
+            }
             steps {
-                echo 'step 2'
-                sh 'printenv'
+                echo 'step 2'                
             }
         }
+        stage('Step3') {
+            when{
+                expression { BRANCH ==~ /(Relese)/}
+            }
+            steps {
+                echo 'step 3'                
+            }
+        }        
     }
 }
